@@ -51,6 +51,7 @@ public class MainApp {
         int latoMaggiore=0;
         char selectionChar = 'O';
         String riempimentoRettangolo=" ";
+        String latoRettangolo="*";
 
         // due input da tastiera allocati a variabili latoMinore,latoMaggiore
         do {
@@ -69,13 +70,14 @@ public class MainApp {
         //selezione per carattere, con conversione a set di caratteri e preso il primo elemento (tronca \n)
         do {
             selectionChar=sc.next().toCharArray()[0];
-        } while (selectionChar!='P'&&selectionChar!='V');
+        } while (selectionChar!='P'&&selectionChar!='V'&&selectionChar!='I');
         // cambia riempimento rettangolo
         if(selectionChar=='P') riempimentoRettangolo="*";
+        else if (selectionChar=='I') {riempimentoRettangolo="*";latoRettangolo=" ";}
         for (int i = 0; i < latoMinore; i++) {
             for (int j = 0; j < latoMaggiore; j++) {
                 //stampa lati
-                if(i==0||i==latoMinore-1||j==0||j==latoMaggiore-1)System.out.print("*");
+                if(i==0||i==latoMinore-1||j==0||j==latoMaggiore-1)System.out.print(latoRettangolo);
                 //se non siamo ai lati stampa il default (siamo nel riempimento)
                 else System.out.print(riempimentoRettangolo);
             }
